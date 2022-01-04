@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "293802169594",
+    "project_id": "arch--organize-better",
+    "storage_bucket": "arch--organize-better.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:293802169594:android:c0b0c47dd80f6576b66543",
+        "android_client_info": {
+          "package_name": "com.arch.archorganisebetter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "293802169594-4nf7o8gshh9ivtuk5ihma73ihd3s9m26.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDA7rWla1T_ibBO-i2gCzRZ9Soorjhu36Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "293802169594-4nf7o8gshh9ivtuk5ihma73ihd3s9m26.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "293802169594-hhp5ao1kekffa71upqfniphs4vaqj22s.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arch"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
