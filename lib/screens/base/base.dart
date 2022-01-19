@@ -1,6 +1,7 @@
 import 'package:archorganisebetter/getxcontrollers/basecontroller.dart';
 import 'package:feather_icons/feather_icons.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +10,11 @@ class Base extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(statusBarColor: Colors.white,
+    statusBarBrightness: Brightness.dark));
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     double screenwidth=MediaQuery.of(context).size.width;
     return
       GetBuilder<BaseController>(

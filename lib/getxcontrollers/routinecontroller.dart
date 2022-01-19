@@ -162,15 +162,14 @@ class RoutineController extends GetxController{
             children: [
               Container(
                 child: Text("Occurs everyday at:\n",style: TextStyle(
-                  fontWeight: FontWeight.w400,
-                  color: Colors.black,
-                  fontSize: 10.5
+                    fontFamily:sfprotextregular,color: Colors.black,
+          //        fontSize: 10.5
+                    fontSize: screenwidth*0.0269
                 ),),
               ),
             ],
           ),
           Container(
-
             height: 28,
             width: screenwidth,
             margin: EdgeInsets.only(top: 0, bottom: 10),
@@ -223,7 +222,9 @@ class RoutineController extends GetxController{
                                     .contains(index)
                                     ? Colors.white
                                     : Colors.black,
-                                fontSize: 10.5),
+            //                    fontSize: 10.5
+                                fontSize: screenwidth*0.0269
+                            ),
                           ),
                         ),
                       ),
@@ -272,7 +273,9 @@ class RoutineController extends GetxController{
                                         fontWeight: FontWeight.w400,
                                         color: Colors.white
                                             ,
-                                        fontSize: 10.5),
+                      //                  fontSize: 10.5
+                                        fontSize: screenwidth*0.0269
+                                    ),
                                   ),
 
                                 ],
@@ -296,12 +299,16 @@ class RoutineController extends GetxController{
         mainAxisAlignment:MainAxisAlignment.start,
         children: [
           Container(
-            margin:EdgeInsets.only(top: 2.5),
+            margin:EdgeInsets.only(
+                top: screenwidth*0.0064
+            ),
             child: Text("Occurs every:",style:
             TextStyle(
                 fontFamily: sfproroundedregular,
                 color: Colors.black,
-                fontSize: 11.5),),
+//                fontSize: 11.5
+                fontSize: screenwidth*0.0294
+            ),),
           ),
         ],
       ),
@@ -313,7 +320,10 @@ class RoutineController extends GetxController{
               child: Text(
                 getdaysofweek(selecteddaylist[i]),
                 style: TextStyle(
-                  fontSize: 11.5, fontWeight: FontWeight.w400),),)
+      //            fontSize: 11.5,
+                    fontSize: screenwidth*0.0294,
+                    fontFamily: sfprotextregular,
+                 ),),)
           ],
         ),
       Row(
@@ -335,7 +345,7 @@ class RoutineController extends GetxController{
         ],
       ),
       Container(
-        margin: EdgeInsets.symmetric(vertical: 4),
+        margin: EdgeInsets.symmetric(vertical: screenwidth*0.0102),
         //    padding: EdgeInsets.symmetric(horizontal: 8),
         width: screenwidth,
         child: Row(
@@ -374,7 +384,9 @@ class RoutineController extends GetxController{
                             .contains(i)
                             ? Colors.white
                             : Colors.black,
-                        fontSize: 10.5),
+//                        fontSize: 10.5
+                        fontSize: screenwidth*0.0269
+                    ),
                   ),
                 ),
               ),
@@ -395,7 +407,8 @@ class RoutineController extends GetxController{
             style: TextStyle(
               fontWeight: FontWeight.w400,
               color: Colors.black,
-              fontSize: 10.5
+   //           fontSize: 10.5
+                fontSize: screenwidth*0.0269
             ),
             )
           ),
@@ -403,10 +416,14 @@ class RoutineController extends GetxController{
       ),
 
       Container(
-        height: 28,
+//        height: 28,
+        height: screenwidth*0.0717,
         width: screenwidth,
         margin:
-        EdgeInsets.only(top: 7.5, bottom: 10),
+        EdgeInsets.only(
+//            top: 7.5, bottom: 10
+            top: 7.5, bottom: 10
+        ),
         child: Center(
           child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -474,7 +491,9 @@ class RoutineController extends GetxController{
                                 .contains(index)
                                 ? Colors.white
                                 : Colors.black,
-                            fontSize: 10.5),
+        //                    fontSize: 10.5
+                            fontSize: screenwidth*0.0269
+                        ),
                       ),
                     ),
                   ),
@@ -543,7 +562,9 @@ class RoutineController extends GetxController{
                                     .contains(index)
                                     ? Colors.white
                                     : Colors.black,
-                                fontSize: 10.5),
+                //                fontSize: 10.5
+                                fontSize: screenwidth*0.0269
+                            ),
                           ),
                         ),
                       ),
@@ -593,7 +614,9 @@ class RoutineController extends GetxController{
                                   fontWeight: FontWeight.w400,
                                   color: Colors.white
                                   ,
-                                  fontSize: 10.5),
+                  //                fontSize: 10.5
+                                  fontSize: screenwidth*0.0269
+                              ),
                             ),
 
                           ],

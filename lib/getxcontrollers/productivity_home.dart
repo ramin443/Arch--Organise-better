@@ -9,7 +9,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-
 import 'package:intl/intl.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:quiver/time.dart';
@@ -42,18 +41,52 @@ class ProductivityHome extends StatelessWidget {
               init: TaskController(),
               builder: (taskscontroller) {
                 return Scaffold(
+                  floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+                  floatingActionButton:
+                  GestureDetector(
+                    onTap: (){
+                      homecontroller.showbottomsheettoadd(context);
+               //       homecontroller.showexample(context);
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(
+//                          right: 12,bottom: 12
+                          right: screenwidth*0.0307,bottom: screenwidth*0.0307
+                      ),
+//                      height: 42, width: 42,
+                      height: screenwidth*0.107, width: screenwidth*0.107,
+                      decoration: BoxDecoration(
+                        color: Color(0xff006EFF),
+                        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.16),blurRadius: 6,offset: Offset(0,3))],
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Icon(CupertinoIcons.add,
+                          color: Colors.white,
+                      //    size: 34,
+                        size: screenwidth*0.087,
+                        ),
+                      ),
+                    ),
+                  ),
                   backgroundColor: Colors.white,
                   appBar: AppBar(
+                    brightness: Brightness.light,
                     leading: IconButton(
                       onPressed: (){
-
+                        homecontroller.save(DailyClassModel("Programming in C and C++",
+                            "SCC Hall 1 Hall 2", "Jan 5, 2022",
+                            "14:15", "15:30"));
+                        homecontroller.updatecurrrentselecteddaylistvew(
+                            DateFormat.yMMMd('en_US').format(DateTime.now()));
                       },
                       icon: Icon(Ionicons.apps,
-                      color:Color(0xff006EFF),
-                //      size: 21,
-                  size: screenwidth*0.0538,    ),
+                      color:Color(0xffA6AEB9),
+                //      size: 19,
+                  size:screenwidth*0.0487,    ),
                     ),
-                    backgroundColor: Colors.transparent,
+
+                    backgroundColor: Colors.white,
                     elevation: 0,
                     centerTitle: true,
                     title: Row(
@@ -82,16 +115,10 @@ class ProductivityHome extends StatelessWidget {
                     actions: [
                       IconButton(onPressed: ()
                       async{
-                   /*     homecontroller.save(DailyClassModel("Introduction to Computer Science",
-                            "SCC Hall 1 Hall 2", DateFormat.yMMMd('en_US').format(DateTime.now()),
-                            "00:17", "01:00"));
-                        homecontroller.updatecurrrentselecteddaylistvew(
-                            DateFormat.yMMMd('en_US').format(DateTime.now()));*/
-                     //   Map response=await locator<ApiService>().campusnetlogin();
-                       // print(response.values);
+                   homecontroller.showbottomsheettoadd(context);
                       }, icon: Icon(
-                        CupertinoIcons.add_circled_solid,
-                        color: Colors.transparent,
+                        CupertinoIcons.add,
+                        color: Colors.black87,
                    //     size: 24,
                      size: screenwidth*0.0615
                         , ))
@@ -101,12 +128,13 @@ class ProductivityHome extends StatelessWidget {
                   body: SingleChildScrollView(
                     physics: BouncingScrollPhysics(),
                     child: Container(
+                      padding: EdgeInsets.only(bottom: screenwidth*0.0461),
                       width: screenwidth,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                        /*  Container(
                             margin: EdgeInsets.symmetric(horizontal: screenwidth*0.0461),
                             child: Text(
                               "Hi, Alida",
@@ -118,7 +146,7 @@ class ProductivityHome extends StatelessWidget {
                                   fontSize: screenwidth*0.0615
                               ),
                             ),
-                          ),
+                          ),*/
                           Container(
                             margin: EdgeInsets.only(
                              //   top: 9, bottom: 24,
@@ -189,29 +217,7 @@ class ProductivityHome extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                GestureDetector(
-                                  onTap: () async {
-                                    //  homeController.animtetospecifieddate(20, 30);
-                                    //  getdatafromcampusnet();
-                                   homecontroller.addtoroutinedialog(context);
-                                    if (homecontroller.yourmom == '') {
-                                      homecontroller.yourmom = 'week';
-                                    }
-                                    if (homecontroller.yourmom == 'week') {
-                                      homecontroller.yourmom = 'month';
-                                    }
-                                    if (homecontroller.yourmom == 'month') {
-                                      homecontroller.yourmom = '';
-                                    }
-                                  },
-                                  child: Container(
-                                    child: Icon(
-                                      CupertinoIcons.plus,
-                                      color: Colors.black,
-                               //       size: 26,
-                                 size: screenwidth*0.0666,   ),
-                                  ),
-                                )
+
                               ],
                             ),
                           ),
@@ -708,7 +714,7 @@ class ProductivityHome extends StatelessWidget {
                         children: [
                           Container(
                             child: Text(
-                              dailyClassModel.date.toString(),
+                              dailyClassModel.classlocation.toString(),
                               style: TextStyle(
                                   fontFamily: sfprotextregular,
                                   color:    dailyClassModel.date!=
@@ -853,7 +859,7 @@ class ProductivityHome extends StatelessWidget {
           ),
           GestureDetector(
             onTap: (){
-              homeController.addtoroutinedialog(context);
+              homeController.showbottomsheettoadd(context);
             },
             child: Container(
               margin: EdgeInsets.only(top: screenwidth*0.0346),

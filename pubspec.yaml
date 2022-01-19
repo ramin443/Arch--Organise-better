@@ -84,6 +84,7 @@ flutter:
     - assets/glogo.png
     - assets/3973481.jpg
     - assets/archlogotopleft.png
+    - assets/No task empty state.svg
 
   # assets:
   #   - images/a_dot_burr.jpeg

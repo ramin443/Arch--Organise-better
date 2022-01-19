@@ -46,6 +46,7 @@ class ListsPage extends StatelessWidget {
         ),
       ),
      appBar:  AppBar(
+
        leading: IconButton(
          onPressed: (){
 
@@ -55,7 +56,7 @@ class ListsPage extends StatelessWidget {
            //      size: 21,
            size: screenwidth*0.0538,    ),
        ),
-       backgroundColor: Colors.transparent,
+       backgroundColor: Colors.white,
        elevation: 0,
        centerTitle: true,
        title: Row(

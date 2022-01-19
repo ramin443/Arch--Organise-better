@@ -3,7 +3,9 @@ import 'package:archorganisebetter/datamodels/TaskModel.dart';
 import 'package:archorganisebetter/getxcontrollers/taskscontroller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:ionicons/ionicons.dart';
 
 class TaskPage extends StatelessWidget {
    TaskPage({Key? key}) : super(key: key);
@@ -31,15 +33,34 @@ class TaskPage extends StatelessWidget {
           return
             Scaffold(
               appBar:   AppBar(
+                leading: IconButton(
+                  onPressed: (){
+                  },
+                  icon: Icon(Ionicons.apps,
+             //       color:Color(0xffA6AEB9),
+                    color: Color(0xffA3A3A3),
+                    //      size: 19,
+                    size:screenwidth*0.0487,    ),
+                ),
                 backgroundColor: Colors.white,
-                elevation: 1,
                 centerTitle: true,
+                elevation: 0,
+                bottom: PreferredSize(
+                  preferredSize: Size(screenwidth,1),
+                  child: Container(
+                    width: screenwidth,
+                    height: 1,
+                    decoration: BoxDecoration(
+                        color: Color(0xffECEBEB)
+                    ),
+                  ),
+                ),
                 title: Container(
-                  child:Text("Your Tasks",style: TextStyle(
+                  child:Text("All Tasks",style: TextStyle(
                       color: Colors.black,
-                      fontFamily: sfpromedium,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 20.5
+                      fontFamily: sfprotextregular,
+//                      fontSize: 16.5
+                      fontSize: screenwidth*0.0423
                   ),),
                 ),
                 actions: [
@@ -47,10 +68,15 @@ class TaskPage extends StatelessWidget {
                       tooltip: 'Menu',
                       child:  GestureDetector(
                         child: Container(
-                          margin: EdgeInsets.only(right: 18),
+                          margin: EdgeInsets.only(
+  //                            right: 18
+                                right: screenwidth*0.0461,
+                          ),
                         child: Icon(CupertinoIcons.ellipsis_circle,
-                          color: Colors.black87,
-                          size: 20.5,),
+                          color: Color(0xffA3A3A3),
+//                          size: 20.5,
+                          size: screenwidth*0.0525,
+                        ),
                       ),),
                       itemBuilder: (context)=>[
 
@@ -70,7 +96,8 @@ class TaskPage extends StatelessWidget {
                                   child: Icon(
                                    CupertinoIcons.printer_fill,
                                     color: Colors.black.withOpacity(0.56),
-                                    size: 18.0,
+//                                    size: 18.0,
+                                    size: screenwidth*0.0461,
                                   ),
                                 ),
                                 GestureDetector(
@@ -79,8 +106,9 @@ class TaskPage extends StatelessWidget {
                                   },  child: Icon(
                                     Icons.share,
                                     color: Colors.black.withOpacity(0.56),
-                                    size: 18.0,
-                                  ),
+                //                    size: 18.0,
+                                  size: screenwidth*0.0461,
+                                ),
                                 ),
                                 GestureDetector(
                                   onTap: (){
@@ -105,15 +133,17 @@ class TaskPage extends StatelessWidget {
                         child: Row(
                           children: [
                             Icon(
-                              Icons.check_circle_rounded,
+                             CupertinoIcons.checkmark_alt_circle_fill,
                               color: Colors.black.withOpacity(0.61),
-                              size: 18.0,
+      //                        size: 18.0,
+                              size: screenwidth*0.0461,
                             ),
                             Container(
                               margin: EdgeInsets.only(left: 12),
                               child: Text(
                                 "Clear completed tasks",
                                 style: TextStyle(
+                                  fontFamily: sfprotextregular,
                                   color: Colors.black.withOpacity(0.61),
                                   fontSize: 12.0,
                                 ),
@@ -193,156 +223,328 @@ class TaskPage extends StatelessWidget {
               backgroundColor: Colors.white,
           body:
             SingleChildScrollView(
-              physics: AlwaysScrollableScrollPhysics(),
+//              physics: AlwaysScrollableScrollPhysics(),
               child: Container(
-                height: screenheight,
-                padding: EdgeInsets.only(bottom: 64),
+           //     height: screenheight,
+                padding: EdgeInsets.only(
+//                    bottom: 64
+                    bottom: screenwidth*0.164
+                ),
               child:Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-
                   Container(
-                    margin:EdgeInsets.only(top: 12)    ,
-                    child: ListView.builder(
-                 // controller: ,
-                        physics: NeverScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: taskcontroller!.allincompletetaskslist!.length,
-                      itemBuilder: (context,index){
-                    return  InkWell(
-                      onTap:(){
-                        taskcontroller.showbottomsheetfortasks(taskcontroller!.allincompletetaskslist![index], context);
-                        print(taskcontroller.allincompletetaskslist![index].listid);
+                    width: screenwidth,
+                    padding: EdgeInsets.only(
+//                        top: 21, left: 18,right: 18
+                        top: screenwidth*0.0538,
+                    ),
+                    child: ReorderableListView(
+                      onReorder: (oldindex,newindex){
+
                       },
-                      child: Container(
-                          padding: EdgeInsets.symmetric(vertical: 11,horizontal: 18),
-                          width: screenwidth,
+                      shrinkWrap: true,
+                      scrollDirection: Axis.vertical,
+                      physics: NeverScrollableScrollPhysics(),
+                      children: [
+                        Container(
+                          key: Key("today"),
+                          margin: EdgeInsets.only(
+                   //           bottom: 18
+                              bottom:  screenwidth*0.023,
+                          ),
+                          padding: EdgeInsets.only(left: screenwidth*0.0461,right:  screenwidth*0.0461),
+                          width:screenwidth,
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              Row(
-                          mainAxisAlignment:MainAxisAlignment.start,
-                                children: [
-                                  GestureDetector(
-                                    onTap:(){
-                                      if(taskcontroller.allincompletetaskslist![index].status=='1'){
-                                        taskController.uncompletethetask(index);
-                                      }else if(taskcontroller.allincompletetaskslist![index].status=='0'){
-                                      taskcontroller.completethetask(index);
-                                      }
-                                    },
-                                    child: Container(
-                                      margin:EdgeInsets.only(right: 10),
-                                      child: Icon(
-                                        taskcontroller.allincompletetaskslist![index].status=='1'?
-                                        CupertinoIcons.checkmark_alt_circle_fill:
-                                        CupertinoIcons.circle,
-                                      size: 18,
-                                      color: Color(0xffD0D0D0),),
-                                    ),
-                                  ),
+                              Container(
+                                child: Text("Today",style: TextStyle(
+                                  fontFamily: sfprosemibold,
+                                  color: Color(0xff006EFF),
+//                                  fontSize: 19
+                                    fontSize: screenwidth*0.0487
+                                ),),
+                              ),
+                              GestureDetector(
+                                onTap: (){},
+                                child: Icon(
+                                  CupertinoIcons.add,
+                                  color: Color(0xff006EFF),
+//                                size: 22,
+                                  size: screenwidth*0.0564,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        for(int i=0;i<
+                            taskcontroller!.allincompletetaskslist!.length;i++)
+                InkWell(
+                  key: Key("$i"),
+                onTap:(){
+            taskcontroller.showbottomsheetfortasks(taskcontroller!.allincompletetaskslist![i], context);
+            print(taskcontroller.allincompletetaskslist![i].listid);
+            },
+              child: Container(
+                padding: EdgeInsets.symmetric(vertical: 11,horizontal: 18),
+                width: screenwidth,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Row(
+                      mainAxisAlignment:MainAxisAlignment.start,
+                      children: [
+                        GestureDetector(
+                          onTap:(){
+                            if(taskcontroller.allincompletetaskslist![i].status=='1'){
+                              taskController.uncompletethetask(i);
+                            }else if(taskcontroller.allincompletetaskslist![i].status=='0'){
+                              taskcontroller.completethetask(i);
+                            }
+                          },
+                          child: Container(
+                            margin:EdgeInsets.only(right: 10),
+                            child: Icon(
+                              taskcontroller.allincompletetaskslist![i].status=='1'?
+                              CupertinoIcons.checkmark_alt_circle_fill:
+                              CupertinoIcons.circle,
+                              size: 18,
+                              color: Color(0xffD0D0D0),),
+                          ),
+                        ),
                         Container(
                             margin:EdgeInsets.only(right: 10),
-                            child: Text(taskcontroller.allincompletetaskslist![index].tasktitle.toString(),
+                            child: Text(taskcontroller.allincompletetaskslist![i].tasktitle.toString(),
                               style: TextStyle(
                                   fontWeight: FontWeight.w400,
                                   color: Colors.black87,
                                   fontSize: 13.5
                               ),)
                         )
-                                ],
-                              ),
+                      ],
+                    ),
 
+                  ],
+                ),
+
+              ),
+            ),
+            for(int j=0;j<taskcontroller.allcompletetaskslist!.length;j++)
+              InkWell(
+                key: Key((7+j).toString()),
+                onTap: (){
+
+                },
+                child: Container(
+                  padding: EdgeInsets.symmetric(vertical: 11,horizontal: 18),
+                  width: screenwidth,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      Row(
+                        mainAxisAlignment:MainAxisAlignment.start,
+                        children: [
+                          GestureDetector(
+                            onTap:(){
+                              if(taskcontroller.allcompletetaskslist![j].status=='1'){
+                                taskController.uncompletethetask(j);
+                                //      AnimatedList.of(context).removeItem(index, (context, animation) =>
+                                // SizedBox(height: 0,));
+                              }else if(taskcontroller.allcompletetaskslist![j].status=='0'){
+                                taskcontroller.completethetask(j);
+                              }
+                            },
+                            child: Container(
+                              margin:EdgeInsets.only(right: 10),
+                              child: Icon(
+                                taskcontroller.allcompletetaskslist![j].status=='1'?
+                                CupertinoIcons.checkmark_alt_circle_fill:
+                                CupertinoIcons.circle,
+                                size: 18,
+                                color: Color(0xffD0D0D0),
+                              ),
+                            ),
+                          ),
+                          Container(
+                              margin:EdgeInsets.only(right: 10),
+                              child: Text(taskcontroller.allcompletetaskslist![j].tasktitle.toString(),
+                                style: TextStyle(
+                                    decoration: TextDecoration.lineThrough,
+                                    fontWeight: FontWeight.w400,
+                                    color:Colors.grey,
+                                    fontSize: 13.5
+                                ),)
+                          )
+                        ],
+                      ),
+                      GestureDetector(
+                        onTap: ()async{
+                          taskcontroller.deletecompletedtask(
+                              taskcontroller.allcompletetaskslist![j]
+                          );
+                        },
+                        child: Container(
+                          child: Icon(
+                            CupertinoIcons.xmark_circle_fill,
+                            size: 18,
+                            color: Color(0xffD0D0D0),
+                          ),
+                        ),
+                      )
+
+                    ],
+                  ),
+
+                ),
+              ),
+                        Container(
+                          key: Key("tomorrow"),
+                          padding: EdgeInsets.only(left: screenwidth*0.0461,right:  screenwidth*0.0461),
+                          margin: EdgeInsets.only(
+                            //           bottom: 18
+                              bottom:  screenwidth*0.023, top:  screenwidth*0.023
+                          ),
+                          width:screenwidth,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text("Tomorrow",style: TextStyle(
+                                    fontFamily: sfprosemibold,
+                                    color: Color(0xff006EFF),
+//                                  fontSize: 19
+                                    fontSize: screenwidth*0.0487
+                                ),),
+                              ),
+                              GestureDetector(
+                                onTap: (){},
+                                child: Icon(
+                                  CupertinoIcons.add,
+                                  color: Color(0xff006EFF),
+//                                size: 22,
+                                  size: screenwidth*0.0564,
+                                ),
+                              )
                             ],
                           ),
-
-                      ),
-                    );
-                }),
-                  ),
-                  ListView.builder(
-                    // controller: ,
-                    physics: NeverScrollableScrollPhysics(),
-                      shrinkWrap: true,
-                      scrollDirection: Axis.vertical,
-                      itemCount: taskcontroller!.allcompletetaskslist!.length,
-                      itemBuilder: (context,index){
-                        return  InkWell(
-                          onTap: (){
-
-                          },
-                          child: Container(
-                              padding: EdgeInsets.symmetric(vertical: 11,horizontal: 18),
-                              width: screenwidth,
-                              child: Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Row(
-                                    mainAxisAlignment:MainAxisAlignment.start,
-                                    children: [
-                                      GestureDetector(
-                                        onTap:(){
-                                          if(taskcontroller.allcompletetaskslist![index].status=='1'){
-                                            taskController.uncompletethetask(index);
-                                      //      AnimatedList.of(context).removeItem(index, (context, animation) =>
-                                           // SizedBox(height: 0,));
-                                          }else if(taskcontroller.allcompletetaskslist![index].status=='0'){
-                                            taskcontroller.completethetask(index);
-                                          }
-                                        },
-                                        child: Container(
-                                          margin:EdgeInsets.only(right: 10),
-                                          child: Icon(
-                                            taskcontroller.allcompletetaskslist![index].status=='1'?
-                                            CupertinoIcons.checkmark_alt_circle_fill:
-                                            CupertinoIcons.circle,
-                                            size: 18,
-                                            color: Color(0xffD0D0D0),
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                          margin:EdgeInsets.only(right: 10),
-                                          child: Text(taskcontroller.allcompletetaskslist![index].tasktitle.toString(),
-                                            style: TextStyle(
-                                              decoration: TextDecoration.lineThrough,
-                                                fontWeight: FontWeight.w400,
-                                                color:Colors.grey,
-                                                fontSize: 13.5
-                                            ),)
-                                      )
-                                    ],
-                                  ),
-                                  GestureDetector(
-                                    onTap: ()async{
-                                      taskcontroller.deletecompletedtask(
-                                        taskcontroller.allcompletetaskslist![index]
-                                      );
-                                    },
-                                    child: Container(
-                                      child: Icon(
-                                        CupertinoIcons.xmark_circle_fill,
-                                        size: 18,
-                                        color: Color(0xffD0D0D0),
-                                      ),
-                                    ),
-                                  )
-
-                                ],
-                              ),
-
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(left: screenwidth*0.0461,right:  screenwidth*0.0461),
+                          key: Key("thisweek"),
+                          margin: EdgeInsets.only(
+                            //           bottom: 18
+                              bottom:  screenwidth*0.023, top:  screenwidth*0.023
                           ),
-                        );
-                      }),
+                          width:screenwidth,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text("This week",style: TextStyle(
+                                    fontFamily: sfprosemibold,
+                                    color: Color(0xff006EFF),
+//                                  fontSize: 19
+                                    fontSize: screenwidth*0.0487
+                                ),),
+                              ),
+                              GestureDetector(
+                                onTap: (){},
+                                child: Icon(
+                                  CupertinoIcons.add,
+                                  color: Color(0xff006EFF),
+//                                size: 22,
+                                  size: screenwidth*0.0564,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                        Container(
+                          padding: EdgeInsets.only(left: screenwidth*0.0461,right:  screenwidth*0.0461),
+                          key: Key("nextweek"),
+                          margin: EdgeInsets.only(
+                            //           bottom: 18
+                              bottom:  screenwidth*0.023, top:  screenwidth*0.023
+                          ),
+                          width:screenwidth,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Container(
+                                child: Text("Next week",style: TextStyle(
+                                    fontFamily: sfprosemibold,
+                                    color: Color(0xff006EFF),
+//                                  fontSize: 19
+                                    fontSize: screenwidth*0.0487
+                                ),),
+                              ),
+                              GestureDetector(
+                                onTap: (){},
+                                child: Icon(
+                                  CupertinoIcons.add,
+                                  color: Color(0xff006EFF),
+//                                size: 22,
+                                  size: screenwidth*0.0564,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),taskcontroller.allincompletetaskslist!.length==0
+                      && taskcontroller.allcompletetaskslist!.length==0
+                      ?
+                  SizedBox(height: screenwidth*0.153,):SizedBox(height: 0,),
+                  taskcontroller.allincompletetaskslist!.length==0
+                      && taskcontroller.allcompletetaskslist!.length==0
+                      ?
+                  emptystate(context):SizedBox(height: 0,),
+
 
                 ],
               )
           ),
             ));
         });
+  }
+  Widget emptystate(BuildContext context){
+    double screenwidth=MediaQuery.of(context).size.width;
+    return  Row(mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              child: SvgPicture.asset("assets/No task empty state.svg",
+                width: screenwidth*0.422,),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+//                                top: 21,bottom: 9
+                  top: screenwidth*0.0538,bottom: screenwidth*0.0230
+              ),
+              child: Text("No Tasks added yet",style: TextStyle(
+                  fontFamily: sfprotextsemibold,
+                  color: Colors.black,
+                  fontSize: 18.5
+              ),),
+            ),
+            Container(
+              child: Text("Press the + button to add tasks. It could be your\n"
+                  "assignments due, errands to run, you get it right",style: TextStyle(
+                  fontFamily: sfproroundedmedium,
+                  color: Color(0xffA3A3A3),
+                  fontSize: 12.5
+              ),),
+            ),
+          ],
+        ),
+      ],
+    );
   }
 }

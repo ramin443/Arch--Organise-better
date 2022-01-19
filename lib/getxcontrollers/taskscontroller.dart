@@ -137,6 +137,7 @@ class TaskController extends GetxController{
           enableDrag: true,
           //  backgroundColor: Colors.transparent,
           context: context,
+          backgroundColor: Colors.transparent,
           builder: (context) {
             return GestureDetector(
               child: Container(

@@ -5,17 +5,18 @@ import 'package:archorganisebetter/getxcontrollers/routinecontroller.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import 'package:intl/intl.dart';
 
 class AddtoyourRoutine extends StatelessWidget {
   AddtoyourRoutine({Key? key}) : super(key: key);
-
+  List selecteddaylist=[0];
   TextEditingController titlecontroller = TextEditingController();
   TextEditingController locationcontroller = TextEditingController();
   TextEditingController datecontroller = TextEditingController();
   TextEditingController starttimecontroller = TextEditingController();
   TextEditingController endtimecontroller = TextEditingController();
+  int typeofrecurringevent=0;
+  List selectedtimeintervallist=[0];
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +50,6 @@ class AddtoyourRoutine extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                   fontFamily: sfprosemibold,
-                                  fontWeight: FontWeight.w700,
                                   color: Colors.black,
 //                    fontSize: 14.5
                                   fontSize: 20),
@@ -72,6 +72,7 @@ class AddtoyourRoutine extends StatelessWidget {
                                   child: Text(
                                     "Class title",
                                     style: TextStyle(
+                                        fontFamily: sfprotextregular,
                                         fontSize: 11.5, color: Colors.black),
                                   ),
                                 ),
@@ -96,7 +97,9 @@ class AddtoyourRoutine extends StatelessWidget {
                               child: Center(
                                 child: TextField(
                                   controller: titlecontroller,
-                                  style: TextStyle(fontSize: 12.5),
+                                  style: TextStyle(
+                                      fontFamily: sfprotextregular,
+                                      fontSize: 12.5),
                                   decoration: InputDecoration(
                                     border: InputBorder.none,
                                   ),
@@ -111,6 +114,7 @@ class AddtoyourRoutine extends StatelessWidget {
                                   child: Text(
                                     "Location( optional)",
                                     style: TextStyle(
+                                        fontFamily: sfprotextregular,
                                         fontSize: 11.5, color: Colors.black),
                                   ),
                                 ),
@@ -138,6 +142,7 @@ class AddtoyourRoutine extends StatelessWidget {
                                   style: TextStyle(fontSize: 12.5),
                                   decoration: InputDecoration(
                                     hintStyle: TextStyle(
+                                        fontFamily: sfprotextregular,
                                         fontSize: 12.5,
                                         color: Colors.grey[600]),
                                     border: InputBorder.none,
@@ -161,7 +166,7 @@ class AddtoyourRoutine extends StatelessWidget {
                                           child: Text(
                                             "Is this a recurring Event?",
                                             style: TextStyle(
-                                                fontWeight: FontWeight.w400,
+                                                fontFamily: sfprotextregular,
                                                 color: Colors.black,
                                                 fontSize: 11.5),
                                           ),
@@ -281,8 +286,8 @@ class AddtoyourRoutine extends StatelessWidget {
                                                       style: TextStyle(
                                                           fontSize: 11.5,
                                                           color: Colors.black,
-                                                          fontWeight:
-                                                              FontWeight.w400),
+                                                        fontFamily: sfprotextregular,
+),
                                                     ),
                                                   )
                                                 ],
@@ -345,8 +350,8 @@ class AddtoyourRoutine extends StatelessWidget {
                                                       style: TextStyle(
                                                           fontSize: 11.5,
                                                           color: Colors.black,
-                                                          fontWeight:
-                                                              FontWeight.w400),
+                                                        fontFamily: sfprotextregular,
+),
                                                     ),
                                                   )
                                                 ],
@@ -408,8 +413,8 @@ class AddtoyourRoutine extends StatelessWidget {
                                                     style: TextStyle(
                                                         fontSize: 11.5,
                                                         color: Colors.black,
-                                                        fontWeight:
-                                                            FontWeight.w400),
+                                                      fontFamily: sfprotextregular,
+                                                    ),
                                                   ),
                                                 )
                                               ],
@@ -445,6 +450,7 @@ class AddtoyourRoutine extends StatelessWidget {
                                 child: Text(
                                   "Cancel",
                                   style: TextStyle(
+                                    fontFamily: sfprotextregular,
                                     color: Color(0xff006EFF),
                                     fontSize: 14.5,
                                   ),
@@ -475,6 +481,7 @@ class AddtoyourRoutine extends StatelessWidget {
                                   child: Text(
                                     "Done",
                                     style: TextStyle(
+                                        fontFamily: sfprotextregular,
                                         color: Colors.white, fontSize: 14),
                                   ),
                                 ),
