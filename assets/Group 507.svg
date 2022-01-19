@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="182" height="162" viewBox="0 0 182 162">
+  <defs>
+    <filter id="Rectangle_2005" x="0" y="0" width="182" height="80" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.043"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <linearGradient id="linear-gradient" x1="0.114" y1="0.5" x2="0.919" y2="0.541" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#5d9ff4"/>
+      <stop offset="1" stop-color="#3362fc"/>
+    </linearGradient>
+    <filter id="Rectangle_2009" x="0" y="82" width="182" height="80" filterUnits="userSpaceOnUse">
+      <feOffset input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur-2"/>
+      <feFlood flood-opacity="0.043"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_507" data-name="Group 507" transform="translate(-118 -242.576)">
+    <g id="Group_506" data-name="Group 506">
+      <g transform="matrix(1, 0, 0, 1, 118, 242.58)" filter="url(#Rectangle_2005)">
+        <g id="Rectangle_2005-2" data-name="Rectangle 2005" transform="translate(9 9)" fill="#fff" stroke="#f4f4f4" stroke-width="0.2">
+          <rect width="164" height="62" rx="12" stroke="none"/>
+          <rect x="0.1" y="0.1" width="163.8" height="61.8" rx="11.9" fill="none"/>
+        </g>
+      </g>
+      <circle id="Ellipse_1123" data-name="Ellipse 1123" cx="14.5" cy="14.5" r="14.5" transform="translate(142 262.076)" fill="url(#linear-gradient)"/>
+      <rect id="Rectangle_2006" data-name="Rectangle 2006" width="91" height="6.4" rx="3.2" transform="translate(185 264.576)" fill="#bac3cb"/>
+      <rect id="Rectangle_2007" data-name="Rectangle 2007" width="26" height="6" rx="3" transform="translate(185 292.576)" fill="#dfe1e6"/>
+      <rect id="Rectangle_2008" data-name="Rectangle 2008" width="67" height="6" rx="3" transform="translate(185 276.576)" fill="#bac3cb"/>
+      <g transform="matrix(1, 0, 0, 1, 118, 242.58)" filter="url(#Rectangle_2009)">
+        <g id="Rectangle_2009-2" data-name="Rectangle 2009" transform="translate(9 91)" fill="#fafafa" stroke="#eaeaea" stroke-width="0.2">
+          <rect width="164" height="62" rx="12" stroke="none"/>
+          <rect x="0.1" y="0.1" width="163.8" height="61.8" rx="11.9" fill="none"/>
+        </g>
+      </g>
+      <circle id="Ellipse_1124" data-name="Ellipse 1124" cx="14.5" cy="14.5" r="14.5" transform="translate(142 341.076)" fill="#9ea0a3"/>
+      <rect id="Rectangle_2010" data-name="Rectangle 2010" width="91" height="6.4" rx="3.2" transform="translate(185 344.16)" fill="#dadce1"/>
+      <rect id="Rectangle_2011" data-name="Rectangle 2011" width="67" height="6.4" rx="3.2" transform="translate(185 356.16)" fill="#d9dde1"/>
+      <rect id="Rectangle_2012" data-name="Rectangle 2012" width="26" height="6.4" rx="3.2" transform="translate(185 373.16)" fill="#e8ecee"/>
+      <g id="Group_504" data-name="Group 504" transform="translate(34.641 -494.502)">
+        <path id="Path_1794" data-name="Path 1794" d="M20540.563-15.667s4.217,4.27,4.414,4.194,7.18-7.3,7.18-7.3" transform="translate(-20425 787.199)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2.5"/>
+      </g>
+      <g id="Group_505" data-name="Group 505" transform="translate(34.641 -415.502)">
+        <path id="Path_1794-2" data-name="Path 1794" d="M20540.563-15.667s4.217,4.27,4.414,4.194,7.18-7.3,7.18-7.3" transform="translate(-20425 787.199)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="2.5"/>
+      </g>
+      <circle id="Ellipse_1125" data-name="Ellipse 1125" cx="3" cy="3" r="3" transform="translate(219 292.58)" fill="#dfe1e6"/>
+      <circle id="Ellipse_1126" data-name="Ellipse 1126" cx="3" cy="3" r="3" transform="translate(219.5 373.16)" fill="#e8ecee"/>
+    </g>
+  </g>
+</svg>

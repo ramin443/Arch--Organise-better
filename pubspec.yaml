@@ -85,6 +85,8 @@ flutter:
     - assets/3973481.jpg
     - assets/archlogotopleft.png
     - assets/No task empty state.svg
+    - assets/Empty state- classes.svg
+    - assets/Group 507.svg
 
   # assets:
   #   - images/a_dot_burr.jpeg
@@ -138,6 +140,9 @@ flutter:
     - family: Sfprotextsemibold
       fonts:
         - asset: fonts/FontsFree-Net-SFProText-Semibold.ttf
+    - family: Sfprotextmedium
+      fonts:
+        - asset: fonts/FontsFree-Net-SFProText-Medium.ttf
           # fonts:
   #   - family: Schyler
   #     fonts:

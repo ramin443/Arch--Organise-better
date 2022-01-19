@@ -10,6 +10,14 @@ class OnBoardingController extends GetxController{
     pageindex=index;
     update();
   }
+  void reorderData(int oldindex, int newindex){
+      if(newindex>oldindex){
+        newindex-=1;
+      }
+   //   final items =widget.item.removeAt(oldindex);
+     // widget.item.insert(newindex, items);
+  update();
+  }
   Widget slide3(BuildContext context){
     double screenwidth=MediaQuery.of(context).size.width;
     return Container(

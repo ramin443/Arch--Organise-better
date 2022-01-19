@@ -406,7 +406,7 @@ class ProductivityHome extends StatelessWidget {
                               :SizedBox(height: 0,),
                           homecontroller.dailyclasseslist!=null
                           && homecontroller.dailyclasseslist!.length==0?
-                          routineemptystate(context):
+                          classesemptydtate(context):
                           ListView.builder(
                             shrinkWrap: true,
                             physics: BouncingScrollPhysics(),
@@ -830,7 +830,80 @@ class ProductivityHome extends StatelessWidget {
       },
     );
   }
-
+  Widget classesemptydtate(BuildContext context){
+    double screenwidth = MediaQuery.of(context).size.width;
+    return Container(
+      margin: EdgeInsets.only(
+//          top: 45
+          top: screenwidth*0.115
+      ),
+      width: screenwidth,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            child: SvgPicture.asset("assets/Group 507.svg",
+                width: screenwidth*0.425,),
+          ),
+          Container(
+            margin: EdgeInsets.only(
+//                top: 32,bottom: 11
+                top: screenwidth*0.082,bottom: screenwidth*0.0282
+            ),
+            child: Text("No classes today yet",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+              fontFamily: sfprotextsemibold,
+              fontSize: screenwidth*0.0487,
+              color: Colors.black,
+            ),),
+          ),
+          Container(
+            child: Text("Press the + button to add new classes/ events\n"
+              "to your routine or import your class schedule\n"
+              "from Campus Net from the settings tab\n",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                fontFamily: sfprotextmedium,
+//                fontSize: 12.5,
+                fontSize:screenwidth*0.0320,
+                color: Color(0xff949DA5),
+              ),),
+          ),
+          Container(
+//            height: 35,width: 178,
+            height: screenwidth*0.0897,width: screenwidth*0.456,
+            margin: EdgeInsets.only(
+//                top: 5
+             top: screenwidth*0.0128
+            ),
+       //     padding: EdgeInsets.symmetric(horizontal: 18,vertical: 10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(7)),
+              gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [
+                  Color(0xff4A84F7),
+                  Color(0xff3565FC)
+                ]
+              )
+            ),
+            child: Center(
+              child: Text("Import from CampusNet",
+              style: TextStyle(
+                fontFamily: sfprotextmedium,
+                color: Colors.white,
+ //               fontSize: 12.5
+                fontSize:screenwidth*0.0320,
+              ),),
+            ),
+          )
+        ],
+      ),
+    );
+  }
   Widget routineemptystate(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;

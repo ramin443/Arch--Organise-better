@@ -182,7 +182,7 @@ class TaskPage extends StatelessWidget {
                         child: TextField(
                           controller: taskcontroller.addtaskcontroller,
                           style: TextStyle(
-                              fontWeight: FontWeight.w400,
+                              fontFamily:sfprotextregular,
                               color: Colors.black87,
                               fontSize: 13.5
                           ),
@@ -223,7 +223,7 @@ class TaskPage extends StatelessWidget {
               backgroundColor: Colors.white,
           body:
             SingleChildScrollView(
-//              physics: AlwaysScrollableScrollPhysics(),
+              physics: BouncingScrollPhysics(),
               child: Container(
            //     height: screenheight,
                 padding: EdgeInsets.only(
@@ -261,7 +261,7 @@ class TaskPage extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text("Today",style: TextStyle(
-                                  fontFamily: sfprosemibold,
+                                  fontFamily: sfprotextsemibold,
                                   color: Color(0xff006EFF),
 //                                  fontSize: 19
                                     fontSize: screenwidth*0.0487
@@ -319,7 +319,7 @@ class TaskPage extends StatelessWidget {
                             margin:EdgeInsets.only(right: 10),
                             child: Text(taskcontroller.allincompletetaskslist![i].tasktitle.toString(),
                               style: TextStyle(
-                                  fontWeight: FontWeight.w400,
+                                  fontFamily: sfprotextregular,
                                   color: Colors.black87,
                                   fontSize: 13.5
                               ),)
@@ -374,7 +374,7 @@ class TaskPage extends StatelessWidget {
                               child: Text(taskcontroller.allcompletetaskslist![j].tasktitle.toString(),
                                 style: TextStyle(
                                     decoration: TextDecoration.lineThrough,
-                                    fontWeight: FontWeight.w400,
+                                    fontFamily: sfprotextregular,
                                     color:Colors.grey,
                                     fontSize: 13.5
                                 ),)
@@ -414,7 +414,7 @@ class TaskPage extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text("Tomorrow",style: TextStyle(
-                                    fontFamily: sfprosemibold,
+                                    fontFamily: sfprotextsemibold,
                                     color: Color(0xff006EFF),
 //                                  fontSize: 19
                                     fontSize: screenwidth*0.0487
@@ -445,7 +445,7 @@ class TaskPage extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text("This week",style: TextStyle(
-                                    fontFamily: sfprosemibold,
+                                    fontFamily: sfprotextsemibold,
                                     color: Color(0xff006EFF),
 //                                  fontSize: 19
                                     fontSize: screenwidth*0.0487
@@ -476,7 +476,7 @@ class TaskPage extends StatelessWidget {
                             children: [
                               Container(
                                 child: Text("Next week",style: TextStyle(
-                                    fontFamily: sfprosemibold,
+                                    fontFamily: sfprotextsemibold,
                                     color: Color(0xff006EFF),
 //                                  fontSize: 19
                                     fontSize: screenwidth*0.0487

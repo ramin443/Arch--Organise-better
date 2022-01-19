@@ -10,3 +10,4 @@ String sfproroundedlight="Sfproroundedlight";
 String sfprotextregular="Sfprotextregular";
 String sfprotextbold="Sfprotextbold";
 String sfprotextsemibold="Sfprotextsemibold";
+String sfprotextmedium="Sfprotextmedium";
